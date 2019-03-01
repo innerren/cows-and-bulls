@@ -30,17 +30,6 @@ function generateNum() {
 	return num;
 }
 
-function giveVersion() {
-	let num = null;
-	let textInput = document.getElementById('inputValue');
-		num = textInput.value;
-		if (num === null || num === '') {
-			return '1234';
-		}
-		textInput.value = '';		
-	return num;
-}
-
 function countBulls(computerString, userString) {
 	let count = 0;
 	for (let i = 0; i < computerString.length; i++) {
@@ -71,7 +60,7 @@ function generateCows (num,elem){
 	let generateCow = [];
 	for (let i = 0; i<num; i++){
 		generateCow[i] = document.createElement('img')
-		generateCow[i].setAttribute('src','http://img.lenagold.ru/k/kow/korova85.png');
+		generateCow[i].setAttribute('src','img/cow.png');
 		generateCow[i].setAttribute('alt','Cow');
 		elem.appendChild(generateCow[i]);
 	}
@@ -84,7 +73,7 @@ function generateBulls (num,elem){
 	let generateBull = [];
 	for (let i = 0; i<num; i++){
 		generateBull[i] = document.createElement('img')
-		generateBull[i].setAttribute('src','http://img.lenagold.ru/k/kow/korova55.png');
+		generateBull[i].setAttribute('src','img/bull.png');
 		generateBull[i].setAttribute('alt','Bull');
 		elem.appendChild(generateBull[i]);
 	}
@@ -95,22 +84,28 @@ let down = 0;
 
 function sendValue() {
 
-let userVersion = giveVersion();
-let computerVersion = generateNum();
-let cows = countCows(computerVersion, userVersion);
-let bulls = countBulls(computerVersion, userVersion);
-let cowsOutput = document.getElementById('cow');
-let bullsOutput = document.getElementById('bull');
-let elemCows = document.createElement('li');
-	generateCows(cows,elemCows);
-let elemBulls = document.createElement('li');
-	generateBulls(bulls, elemBulls);
+	let textInput = document.getElementById('inputValue');
+	let userVersion = textInput.value;
+		textInput.value = '';
 
-	cowsOutput.appendChild(elemCows);
-	bullsOutput.appendChild(elemBulls);
+	if ((userVersion !== null)&&(userVersion.length === 4)){
+		let computerVersion = generateNum();
+		let cows = countCows(computerVersion, userVersion);
+		let bulls = countBulls(computerVersion, userVersion);
+		let cowsOutput = document.getElementById('cow');
+		let bullsOutput = document.getElementById('bull');
+		let elemCows = document.createElement('li');
+			generateCows(cows,elemCows);
+		let elemBulls = document.createElement('li');
+			generateBulls(bulls, elemBulls);
 
-window.scrollTo(0,down);
-down += 100;
-console.log(`computerVersion: ${computerVersion}, userVersion: ${userVersion}`);
+			cowsOutput.appendChild(elemCows);
+			bullsOutput.appendChild(elemBulls);
+
+		window.scrollTo(0,down);
+		down += 100;
+		console.log(`computerVersion: ${computerVersion}, userVersion: ${userVersion}`);
+	
+	}
 }
 
