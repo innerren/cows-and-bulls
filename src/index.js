@@ -94,10 +94,24 @@ function sendValue() {
 		let bulls = countBulls(computerVersion, userVersion);
 		let cowsOutput = document.getElementById('cow');
 		let bullsOutput = document.getElementById('bull');
+		
 		let elemCows = document.createElement('li');
-			generateCows(cows,elemCows);
+		let flexibleCows = document.createElement('div');
+			flexibleCows.setAttribute('class', 'flexible');
+			generateCows(cows,flexibleCows);
+			elemCows.appendChild(flexibleCows);
+		let textCows = document.createElement('span');
+			textCows.innerHTML = `computer say: <br> ${computerVersion}`;
+			elemCows.appendChild(textCows);
+		
 		let elemBulls = document.createElement('li');
-			generateBulls(bulls, elemBulls);
+		let textBulls = document.createElement('span');
+			textBulls.innerHTML = `user say: <br> ${userVersion}`;
+			elemBulls.appendChild(textBulls);
+		let flexibleBulls = document.createElement('div');
+			flexibleBulls.setAttribute('class', 'flexible');
+			generateBulls(bulls, flexibleBulls);
+			elemBulls.appendChild(flexibleBulls);
 
 			cowsOutput.appendChild(elemCows);
 			bullsOutput.appendChild(elemBulls);

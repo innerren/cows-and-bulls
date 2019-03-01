@@ -25,16 +25,34 @@ ul{
 	list-style: none;
 }
 
+#cow>li>span{
+	text-align: right;
+}
+
+
+#bull>li>span{
+	text-align: left;
+}
+
 li{
-	height: 10vw;
-	width: 50vw; 
+	display: flex;
+	justify-content: space-between;
+	flex-direction: row;
+	height: 6vw;
+	width: 49vw;
+	font-size: 2vw;
+	color: white;	
+}
+
+.flexible{
+	width: 38vw; 
 	display: flex;
 	justify-content: space-around;
-	flex-direction: row;	
+	flex-direction: row;
 }
 
 img{
-	height: 7vw;
+	height: 5vw;
 	border-image: 0;
 	border: 0;
 }
