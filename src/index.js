@@ -55,6 +55,7 @@ function countCows(computerString, userString) {
 
 function generateCows (num,elem){
 	if (num == 0){
+		elem.setAttribute('style','background-image: url(img/traceCow.png);background-repeat: repeat-x;')
 		return;
 	}
 	let generateCow = [];
@@ -68,6 +69,7 @@ function generateCows (num,elem){
 
 function generateBulls (num,elem){
 	if (num == 0){
+		elem.setAttribute('style','background-image: url(img/traceBull.png);background-repeat: repeat-x;')
 		return;
 	}
 	let generateBull = [];
