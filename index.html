@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Cows & Bulls</title>
+		<meta charset="UTF-8" />
+		<link href="src/style.css" rel="stylesheet"> 
+		<script src="src/index.js"></script>
+
+	</head>
+
+	<body>
+		<footer>
+				<form>
+					<p>Please enter 4 different digits without spaces:</p>
+					<input type="text" id="inputValue" name="inputValue"  maxlength="4" onkeyup="isNumeric(this)" >
+					<input type="button" id="subInput" value="send" onclick="sendValue()">
+					<div class="displayTable">
+						<p>Cows</p>
+						<p>Bulls</p>
+					</div>
+				</form>
+			</footer>
+			<div id="displayResult" class="displayTable">
+				<ul id="cow">
+				</ul>
+				<ul id="bull">
+				</ul>
+			</div>
+		
+	</body>
+</html>
