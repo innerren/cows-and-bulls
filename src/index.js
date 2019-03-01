@@ -83,6 +83,7 @@ function generateBulls (num,elem){
 
 
 let down = 0;
+let computerVersion = generateNum();
 
 function sendValue() {
 
@@ -91,7 +92,7 @@ function sendValue() {
 		textInput.value = '';
 
 	if ((userVersion !== null)&&(userVersion.length === 4)){
-		let computerVersion = generateNum();
+		
 		let cows = countCows(computerVersion, userVersion);
 		let bulls = countBulls(computerVersion, userVersion);
 		let cowsOutput = document.getElementById('cow');
@@ -102,9 +103,9 @@ function sendValue() {
 			flexibleCows.setAttribute('class', 'flexible');
 			generateCows(cows,flexibleCows);
 			elemCows.appendChild(flexibleCows);
-		let textCows = document.createElement('span');
-			textCows.innerHTML = `computer say: <br> ${computerVersion}`;
-			elemCows.appendChild(textCows);
+		//let textCows = document.createElement('span');
+		//	textCows.innerHTML = `computer say: <br> ${computerVersion}`;
+		//	elemCows.appendChild(textCows);
 		
 		let elemBulls = document.createElement('li');
 		let textBulls = document.createElement('span');
