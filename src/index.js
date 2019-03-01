@@ -26,7 +26,7 @@ function generateNum() {
 		} else {
 			num = num.toString();
 		}
-	} while (!isDifferent(num));
+	} while (!(isDifferent(num)&&(+num)>100));
 	return num;
 }
 
