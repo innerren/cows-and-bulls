@@ -17,7 +17,7 @@ function isNumeric(e){
 }
 
 
-function generateNum() {
+var generateNum = () => {
 	let num = '';
 	do {
 		num = Math.floor(Math.random() * 1e4);
@@ -81,6 +81,14 @@ function generateBulls (num,elem){
 	}
 }
 
+function winner(){
+	const winFilter = document.getElementById('winnerFilter');
+	const win = document.getElementById('winner');
+	winFilter.style.zIndex = 15;
+	winFilter.style.display = 'block';
+	win.style.zIndex = 15;
+	win.style.display = 'flex';
+}
 
 let down = 0;
 let computerVersion = generateNum();
@@ -103,13 +111,10 @@ function sendValue() {
 			flexibleCows.setAttribute('class', 'flexible');
 			generateCows(cows,flexibleCows);
 			elemCows.appendChild(flexibleCows);
-		//let textCows = document.createElement('span');
-		//	textCows.innerHTML = `computer say: <br> ${computerVersion}`;
-		//	elemCows.appendChild(textCows);
 		
 		let elemBulls = document.createElement('li');
 		let textBulls = document.createElement('span');
-			textBulls.innerHTML = `user say: <br> ${userVersion}`;
+			textBulls.innerHTML = `you say: <br> ${userVersion}`;
 			elemBulls.appendChild(textBulls);
 		let flexibleBulls = document.createElement('div');
 			flexibleBulls.setAttribute('class', 'flexible');
@@ -118,6 +123,8 @@ function sendValue() {
 
 			cowsOutput.appendChild(elemCows);
 			bullsOutput.appendChild(elemBulls);
+
+			if (bulls === 4) winner();
 
 		window.scrollTo(0,down);
 		down += 100;
