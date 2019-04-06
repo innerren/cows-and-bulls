@@ -133,3 +133,7 @@ function sendValue() {
 	}
 }
 
+document.getElementsByTagName('form')[0].onsubmit = function(){
+	sendValue();
+	return false;
+}
